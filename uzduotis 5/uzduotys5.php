@@ -85,8 +85,7 @@ function textReplicator (string $text, ?int $number) : string{
     $result = $text;
 
     if ($number === 0)
-        return 1;
-
+        $number = 1;
 
     for ($i = 1; $i < $number; $i++){
         $result = $result .'-'.$text;
@@ -117,11 +116,3 @@ $anonimine = function(string $text, ?int $number) : string{
 
 var_dump($anonimine('someText', 3));
 var_dump($anonimine('someText', null));
-
-function hide ( string $email, int $age) :string {
-    if ($age < 17){
-        return 'mai@jajaja.lt';
-    }
-    return $email;
-}
-var_dump(hide("ilona@hmal.lt", 80));
