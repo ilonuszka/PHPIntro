@@ -34,8 +34,12 @@ function exercise1(): void
     Išspausdinti visų krepšelio produktų pavadinimus vienoje eilutėje.
     Comfy chair, Yellow lamp, Didzioji sofa, Softest rug, Blue shelf
     */
+    $newproducts = getShoppingCart();
+    $result = array_keys($newproducts['products']);
+    $imploudas = implode(', ', $result);
+    echo $imploudas;
 }
-
+(exercise1());
 function exercise2(): float
 {
     /*
@@ -45,10 +49,20 @@ function exercise2(): float
     Jeigu produkto laukai užvadinti kitais pavadinimais arba iš viso jų neturi, tą produktą reikia ignoruoti.
 
     */
+    $result = 0;
+    $newproducts = getShoppingCart();
+    foreach ($newproducts['products'] as $key => $value) {
+        if(is_array($value)) {
+            if ((array_key_exists('price', $value)) && (array_key_exists('quantity', $value))) {
+                $result = $result + ($value['price'] * $value['quantity']);
+            }
+    };
 
-    return 0;
+
+    }
+    return $result;
 }
-
+var_dump(exercise2());
 function exercise3(): float
 {
 
