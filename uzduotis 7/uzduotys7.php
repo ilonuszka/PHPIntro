@@ -263,14 +263,14 @@ function exercise9(): void
     $animals = [
         [
             'type' => 'water',
-            'name' => 'shark',
+            'name' => 'shark',   // $resul['water'][]='shark'         ['water'->['shark']]
         ],
         [
-            'type' => 'land',
+            'type' => 'land',   // $resul['land'][]='chimp'         ['land'->['shark']]
             'name' => 'chimp',
         ],
         [
-            'type' => 'water',
+            'type' => 'water',  // $resul['water'][]='hippo'         ['water'->['shark','hippo']]
             'name' => 'hippo',
         ],
         [
@@ -292,9 +292,28 @@ function exercise9(): void
     Rezultatas:
     land: chimp dog cat
     water: shark hippo crocodile
+
+    $result =
+    [ 'water' -> ['shark','hippo','crocodile'],
+      'land'  -> ['chimp','dog','cat']
+    ]
     */
+    $result = [];
+
+    foreach ($animals as $key => $value){
+       $result[$value['type']][] = $value['name']; //$result['land'][] = 'gaidys'
+    };
+
+    foreach ($result as $key => $value) {
+        echo $key.": ".implode(' ', $value).PHP_EOL;
+    }
 }
 
+(exercise9());
+/*
+    Iteruodami per masyvą išspausdinkite eilutę, kurioje matytusi produkto pavadinimas ir tipas atskirti brūkšneliu:
+    Best chair - furniture, Ultimate lamp - lighting, Soft sofa - furniture
+    */
 function getProducts(): array
 {
     return [
@@ -327,20 +346,29 @@ function exercise10(): array
         'price' => 200,
     ]
     */
-
-    return [];
+    $newType =  [
+        'type'   => 'appliance',
+        'name'   => 'Coolest fridge',
+        'price'  => 200
+    ];
+   $products['fridge']=$newType;
+    return $products;
 }
-
+var_dump(exercise10());
 function exercise11(): int
 {
     $products = getProducts();
     /*
     Raskite ir grąžinkite visų produktų kainų vidurkį
     */
-
-    return 0;
+ $productPrice = array_column($products, 'price');
+ $sum = array_sum($productPrice);
+ print_r($productPrice);
+ $result = $sum / count($productPrice);
+    return (int) $result;
 }
 
+var_dump(exercise11());
 function exercise12(): array
 {
     $products = getProducts();
@@ -352,10 +380,13 @@ function exercise12(): array
         'Soft sofa',
     ]
     */
+  $products['best chair']= [];
+  $products['ultimate lamp'] =[];
+  $products['soft sofa'] = [];
 
-    return [];
+    return $products;
 }
-
+var_dump(exercise12());
 function exercise13(): void
 {
     $products = getProducts();
@@ -363,6 +394,9 @@ function exercise13(): void
     Iteruodami per masyvą išspausdinkite eilutę, kurioje matytusi produkto pavadinimas ir tipas atskirti brūkšneliu:
     Best chair - furniture, Ultimate lamp - lighting, Soft sofa - furniture
     */
+  foreach ($products as $key => $value) {
 
+      echo $value['name'].' - '.$value['type']. ',';
+  }
 }
-
+(exercise13());
