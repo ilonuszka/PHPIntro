@@ -100,9 +100,6 @@ echo $date7 -> format('Y M jS h:i:s A').PHP_EOL;
 $date8 -> modify('-1day');
 echo $date8 -> format('Y M jS h:i:s A').PHP_EOL;
 
-
-
-
 }
 exercise5();
 function exercise6(): void
