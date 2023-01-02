@@ -33,14 +33,11 @@ function exercise1(): array
      echo $year;
      if ($year === '2022') {
          echo $value['name'] . ' '. $date2->format('Y-m-d h:i:s') . PHP_EOL;
-         $newArray[] =$value;
+         $newArray[] = $value;
 
      }
-
-     }
-
     return $newArray;
-}
+}};
 exercise1();
 function exercise2(bool $showOnlyDays): void
 {
