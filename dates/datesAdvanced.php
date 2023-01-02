@@ -87,7 +87,7 @@ function exercise2(bool $showOnlyDays): void
         $main = date_create_from_format("Y M d H:i:s", $value['last_purchase']);
         $dateDiff = $date->diff($main);// date interval tipas;
             echo "Last purchased:" . PHP_EOL . $value['name'] . ' ' . $dateDiff->format($days) . PHP_EOL;
-        echo "Last purchased:" . PHP_EOL . $value['name'] . ' ' . $dateDiff->format($fullDate) . PHP_EOL;
+
         }
     }
 exercise2(false);
