@@ -33,13 +33,13 @@ function exercise1(): array
      $year = $date2->format('Y').PHP_EOL;
      echo $year;
      if ($year === '2022') {
-         echo $value['name'] . ' ' . $date2->format('Y-m-d h:i:s') . PHP_EOL;
+         echo $value['name'] . ' ' . $date2->format('Y-m-d h:i:s');
          $newArray = [];
      }
      }
     return $newArray;
 };
-//exercise1();
+exercise1();
 function exercise2(bool $showOnlyDays): void
 {
     $products = [
@@ -90,8 +90,8 @@ function exercise2(bool $showOnlyDays): void
 
         }
     }
-exercise2(false);
-exercise2(true);
+//exercise2(false);
+//exercise2(true);
 function exercise3(int $numberOfCycles): void
 {
     /*
