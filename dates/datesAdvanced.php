@@ -95,10 +95,10 @@ function exercise3(int $numberOfCycles): void
 
 for ($i = 0; $i < $numberOfCycles; $i++) {
     echo $i.PHP_EOL;
-        //    $start = hrtime(true);
-//    $end = hrtime(true);
-//     $duration = $end - $start;
-//    echo $duration/1000000;
+    $start = hrtime(true);
+$end = hrtime(true);
+$duration = $end - $start;
+  echo $duration/1000000;
     }
 }
-exercise3($numberOfCycles(1000000));
+exercise3(1000000);
