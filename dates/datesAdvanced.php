@@ -27,18 +27,19 @@ function exercise1(): array
     Grąžinkite iš funkcijos masyvą tik su tais produktais, kurie paskutinį kartą buvo pirkti einamaisiais metais.
     Ši funkcija turėtų veikti ir bet kuriais ateinančiais metais (2023, 2024 ir t.t.)
     */
+
  foreach ($products as $value) {
      $date2 = date_create_from_format("Y M d H:i:s", $value['last_purchase']);
      $year = $date2->format('Y').PHP_EOL;
      echo $year;
      if ($year === '2022') {
-         echo $value['name'] . ' '. $date2->format('Y-m-d h:i:s') . PHP_EOL;
-         $newArray[] = $value;
-
+         echo $value['name'] . ' ' . $date2->format('Y-m-d h:i:s') . PHP_EOL;
+         $newArray = [];
+     }
      }
     return $newArray;
 };
-exercise1();
+//exercise1();
 function exercise2(bool $showOnlyDays): void
 {
     $products = [
@@ -73,18 +74,24 @@ function exercise2(bool $showOnlyDays): void
     Wine glass 51 days ago
     ...
     */
-
+//     $days = '%a days ago';
+//     $fullDate = '%y years %m months %d days ago';
+     if ($showOnlyDays === true) {
+         $days = '%a days ago';
+     } else {
+         $days = '%y years %m months %d days ago';
+     }
+     //format yra stringinis dalykas ir mes turime paduoti jam stringa
     foreach($products as  $value ) {
         $date = new DateTime();
-//        $main = date_create_from_format("Y M d H:i:s", $value['last_purchase']);
-//        echo "Last purchased:" . PHP_EOL . $value['name'] . ' ' . $main->format('Y m d H:i:s') . PHP_EOL;
-        $dateDiff = $date->diff($showOnlyDays);
-        if ($dateDiff->format("%R") === '-') {
-            echo $dateDiff->format("%d days ago") . PHP_EOL;
+        $main = date_create_from_format("Y M d H:i:s", $value['last_purchase']);
+        $dateDiff = $date->diff($main);// date interval tipas;
+            echo "Last purchased:" . PHP_EOL . $value['name'] . ' ' . $dateDiff->format($days) . PHP_EOL;
+        echo "Last purchased:" . PHP_EOL . $value['name'] . ' ' . $dateDiff->format($fullDate) . PHP_EOL;
         }
-    }}
-//exercise2(false);
-//exercise2(true);
+    }
+exercise2(false);
+exercise2(true);
 function exercise3(int $numberOfCycles): void
 {
     /*
@@ -105,5 +112,5 @@ for ($i = 0; $i < $numberOfCycles; $i++) {
    var_dump($duration/1000000);
 
     }
-}}
+}
 //exercise3(1000000);
