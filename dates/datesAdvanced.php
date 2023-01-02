@@ -37,7 +37,7 @@ function exercise1(): array
 
      }
     return $newArray;
-}};
+};
 exercise1();
 function exercise2(bool $showOnlyDays): void
 {
@@ -105,5 +105,5 @@ for ($i = 0; $i < $numberOfCycles; $i++) {
    var_dump($duration/1000000);
 
     }
-}
+}}
 //exercise3(1000000);
