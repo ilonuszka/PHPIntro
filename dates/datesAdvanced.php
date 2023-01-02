@@ -30,16 +30,18 @@ function exercise1(): array
 
  foreach ($products as $value) {
      $date2 = date_create_from_format("Y M d H:i:s", $value['last_purchase']);
-     $year = $date2->format('Y').PHP_EOL;
-     echo $year;
-     if ($year === '2022') {
-         echo $value['name'] . ' ' . $date2->format('Y-m-d h:i:s');
-         $newArray = [];
+     $year = $date2->format('Y');
+     $currentDay = new DateTime();
+     $formattedCurrentDay = $currentDay->format('Y');
+//     echo $year;
+     if ($year === $formattedCurrentDay) {
+         echo $value['name'] . ' ' . $date2->format('Y-m-d h:i:s').' ' .PHP_EOL;
+         $newArray [] = $value;
      }
      }
     return $newArray;
 };
-exercise1();
+print_r(exercise1());
 function exercise2(bool $showOnlyDays): void
 {
     $products = [
