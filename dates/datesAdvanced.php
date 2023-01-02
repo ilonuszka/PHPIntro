@@ -29,13 +29,19 @@ function exercise1(): array
     */
  foreach ($products as $value) {
      $date2 = date_create_from_format("Y M d H:i:s", $value['last_purchase']);
-     if ($value['last_purchase'] > 2022) {
-         echo $value['name'] . ' ' . $date2->format('Y-m-d h:i:s') . PHP_EOL;
+     $year = $date2->format('Y').PHP_EOL;
+     echo $year;
+     if ($year === '2022') {
+         echo $value['name'] . ' '. $date2->format('Y-m-d h:i:s') . PHP_EOL;
+         $newArray[] =$value;
+
      }
- }
-    return [];
+
+     }
+
+    return $newArray;
 }
-//exercise1();
+exercise1();
 function exercise2(bool $showOnlyDays): void
 {
     $products = [
@@ -95,10 +101,12 @@ function exercise3(int $numberOfCycles): void
 
 for ($i = 0; $i < $numberOfCycles; $i++) {
     echo $i.PHP_EOL;
+
     $start = hrtime(true);
-$end = hrtime(true);
-$duration = $end - $start;
-  echo $duration/1000000;
+    $end = hrtime(true);
+   $duration = $end - $start;
+   var_dump($duration/1000000);
+
     }
 }
-exercise3(1000000);
+//exercise3(1000000);
