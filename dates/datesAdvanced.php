@@ -7,7 +7,7 @@ function exercise1(): array
     $products = [
         [
             'name' => 'Wine glass',
-            'last_purchase' => '2022 Jan 15 18:34:12',
+            'last_purchase' => '2023 Jan 15 18:34:12',
         ],
         [
             'name' => 'Bread knife',
@@ -27,7 +27,7 @@ function exercise1(): array
     Grąžinkite iš funkcijos masyvą tik su tais produktais, kurie paskutinį kartą buvo pirkti einamaisiais metais.
     Ši funkcija turėtų veikti ir bet kuriais ateinančiais metais (2023, 2024 ir t.t.)
     */
-
+$newArray = [];
  foreach ($products as $value) {
      $date2 = date_create_from_format("Y M d H:i:s", $value['last_purchase']);
      $year = $date2->format('Y');
@@ -104,15 +104,15 @@ function exercise3(int $numberOfCycles): void
 
 
 
-
-for ($i = 0; $i < $numberOfCycles; $i++) {
-    echo $i.PHP_EOL;
-
     $start = hrtime(true);
+for ($i = 0; $i < $numberOfCycles; $i++) {
+    echo $i . PHP_EOL;
+}
+
     $end = hrtime(true);
    $duration = $end - $start;
-   var_dump($duration/1000000);
+   var_dump(round($duration/1000000));
 
-    }
+
 }
-//exercise3(1000000);
+exercise3(1000000);
