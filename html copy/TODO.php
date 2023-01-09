@@ -10,12 +10,14 @@
 <body>
 <form method="POST" action="todosubmi.php">
     <fieldset>
-        <legend>TO DO List:</legend>
-            <input type="text" id="todo" name="todo" value="todo">
-            <input type="date" id="dueDate" name="dueDate">
-            <input type="time" id="time" name="time">
-            <input type="submit" name="submit" value="Submit" />
-    </fieldset>
+    <legend>TO DO List:</legend>
+        <label for="todo">First name:</label><br>
+        <input type="text" id="todo" name="todo" placeholder="todo">
+        <input type="date" id="dueDate" name="dueDate">
+        <input type="time" id="time" name="time">
+    <input type="submit"
+    </select> <br>
+</fieldset>
 </form>
     <fieldset>
         <legend>TODOS</legend>
@@ -24,10 +26,6 @@
             $json = json_decode($space, true);
             if ($json) foreach ($json as $key=>$item){
                 echo $item['todo'].', created at:'.$item['created'].', due date:'.$item['dueDate'];
-                echo '<form style="display: inline" method="POST" action="edit.php">
-                        <input type="submit" name="edit" value="Edit" />
-                        <input type="hidden" id="editID" name="editID" value="'.$key.'">
-                      </form>';
                 echo '<form style="display: inline" method="POST" action="delete.php">
                         <input type="submit" name="delete" value="Delete" />
                         <input type="hidden" id="todoID" name="todoID" value="'.$key.'">

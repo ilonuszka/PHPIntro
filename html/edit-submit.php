@@ -10,16 +10,18 @@
 </head>
 <body>
 <?php
+echo 'Form was subbmited!';
+$content = $_POST['todo'];
+$id = $_POST['editID'];
+
+$textfile = 'todo.json';
 $space = file_get_contents("todo.json",true);
 $json = json_decode($space, true);
 
-if ($json) {
-    unset($json[$_POST['todoID']]);
-    $encodedJson = json_encode($json, JSON_PRETTY_PRINT);
-    $textfile = 'todo.json';
-    file_put_contents($textfile, $encodedJson);
-    echo 'Todo item was deleted';
-}
+$json[$id]['todo'] = $content;
+
+$encodedJson = json_encode($json, JSON_PRETTY_PRINT);
+file_put_contents($textfile, $encodedJson);
 ?>
 </body>
 </html>

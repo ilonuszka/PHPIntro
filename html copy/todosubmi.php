@@ -5,7 +5,6 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta http-equiv="refresh" content="1;url=/TODO.php" />
     <title>Document</title>
 </head>
 <body>
@@ -14,7 +13,7 @@
     $content['todo'] = $_POST['todo'];
     $content['dueDate'] = $_POST['dueDate'].' '. $_POST['time'];
     $content['created'] = date_create()->format('Y-m-d H:i');
-//    var_dump($_POST['delete']);
+    var_dump($_POST['delete']);
 
     $textfile = 'todo.json';
     $space = file_get_contents("todo.json",true);
@@ -23,7 +22,7 @@
     if ($json) $json[] = $content;
     else $json[0] = $content;
 
-    $encodedJson = json_encode($json, JSON_PRETTY_PRINT); //masyvas paverciamas stringu
+    $encodedJson = json_encode($json, JSON_PRETTY_PRINT);
     file_put_contents($textfile, $encodedJson);
 ?>
 </body>
