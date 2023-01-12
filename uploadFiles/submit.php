@@ -15,7 +15,8 @@ if($error != UPLOAD_ERR_OK) {
     die;
 }
 $target_dir = "data/";
-$target_file = $target_dir .uniqid(). basename($_FILES['my_file']['name']);
+$target_filename = uniqid(). basename($_FILES['my_file']['name']);
+$target_file = $target_dir.$target_filename;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
 if($imageFileType != "png" && $imageFileType != "jpeg"
@@ -32,7 +33,8 @@ move_uploaded_file($temporateFile,$target_file);
 echo 'upload successful';
 
 $array = [];
-$array['name'] = $target_file;
+$array['storage_name'] = $target_filename;
+$array['name'] = $_FILES["my_file"]["name"];
 $array['size'] = $_FILES["my_file"]["size"];
 $array['path'] = $target_dir;
 $array['date'] = date_create()->format('Y-m-d H:i');

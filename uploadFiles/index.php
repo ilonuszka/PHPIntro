@@ -26,15 +26,16 @@
 
     <fieldset>
         <legend>Uploaded files:</legend>
-        <?php foreach ($jsonDecode as $item):?>
+        <?php foreach ($jsonDecode as $key => $item):?>
         <div>
-            <div><?php echo $item['name'];?></div>
-            <div><?php echo $item['path'];?></div>
-            <div><?php echo $item['size'];?></div>
-            <div><?php echo $item['date'];?></div>
+            <div><a href="/download.php?file=<?php echo $item['path'].$item['storage_name'] ?>"><?php echo $item['name'];?></a></div>
+            <div><?php echo $item['path'] ?></div>
+            <div><?php echo $item['size'] ?></div>
+            <div><?php echo $item['date'] ?></div>
+
             <form style="display: inline" method="POST" action="delete.php">
                 <input type="submit" name="delete" value="Delete" />
-                <input type="hidden" id="todoID" name="todoID" value="'.$key.'">
+                <input type="hidden" id="FileID" name="FileID" value="<?php echo $key ?>">
             </form>
         </div>
         <?php endforeach;?>
