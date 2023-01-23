@@ -1,0 +1,9 @@
+fieldset{
+    display: flex;
+    flex-direction: column;
+}
+
+fieldset>div{
+    display: flex;
+    justify-content: space-between;
+}

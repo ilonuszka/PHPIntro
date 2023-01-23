@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="refresh" content="1;url=/TODO.php" />
+    <title>Document</title>
+</head>
+<body>
+<?php
+echo 'Form was subbmited!';
+$content = $_POST['todo'];
+$id = $_POST['editID'];
+
+$textfile = 'todo.json';
+$space = file_get_contents("todo.json",true);
+$json = json_decode($space, true);
+
+$json[$id]['todo'] = $content;
+
+$encodedJson = json_encode($json, JSON_PRETTY_PRINT);
+file_put_contents($textfile, $encodedJson);
+?>
+</body>
+</html>

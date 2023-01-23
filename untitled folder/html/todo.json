@@ -1,0 +1,27 @@
+[
+    {
+        "todo": "Nupirkti kopustu",
+        "dueDate": "2023-01-04 19:30",
+        "created": "2023-01-09 18:25"
+    },
+    {
+        "todo": "Pasikasyti pazasti",
+        "dueDate": "2023-03-16 21:30",
+        "created": "2023-01-09 18:26"
+    },
+    {
+        "todo": "Sugrauzti obolio",
+        "dueDate": "2023-02-21 22:31",
+        "created": "2023-01-09 18:26"
+    },
+    {
+        "todo": "Padeklamuoti kalanbura",
+        "dueDate": "2023-02-01 23:33",
+        "created": "2023-01-09 18:27"
+    },
+    {
+        "todo": "j",
+        "dueDate": "2023-01-09 19:30",
+        "created": "2023-01-09 18:27"
+    }
+]
