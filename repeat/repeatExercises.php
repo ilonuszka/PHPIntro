@@ -170,3 +170,5 @@ echo '=============================='.PHP_EOL;
 inStock('Yellow lamp', 2, $products);
 inStock('Softest rug', 3, $products);
 inStock('Softest rug', 4, $products);
+
+// XO XO XO
